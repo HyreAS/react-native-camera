@@ -460,6 +460,8 @@ Supported options:
 
 - `pauseAfterCapture` (boolean true or false). If true, pause the preview layer immediately after capturing the image. You will need to call `cameraRef.resumePreview()` before using the camera again. If no value is specified `pauseAfterCapture:false` is used.
 
+- `usePersistentStorage` (android only, boolean). Use this with `true` if you want the picture to be saved to the files directory instead of the cache directory, it is going to be saved. If no value is specified `usePersistentStorage:false` is used.
+
 - `orientation` (string or number). Specifies the orientation that us used for taking the picture. Possible values: `"portrait"`, `"portraitUpsideDown"`, `"landscapeLeft"` or `"landscapeRight"`.
 
 The promise will be fulfilled with an object with some of the following properties:
