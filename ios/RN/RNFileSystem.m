@@ -36,5 +36,10 @@
     return [array objectAtIndex:0];
 }
 
-@end
++ (NSString *)persistentStorageDirectoryPath
+{
+    NSArray *array = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [array objectAtIndex:0];
+}
 
+@end

@@ -428,7 +428,12 @@ static NSDictionary *defaultFaceDetectorOptions = nil;
             NSMutableDictionary *response = [[NSMutableDictionary alloc] init];
             float quality = [options[@"quality"] floatValue];
             NSData *takenImageData = UIImageJPEGRepresentation(takenImage, quality);
-            NSString *path = [RNFileSystem generatePathInDirectory:[[RNFileSystem cacheDirectoryPath] stringByAppendingPathComponent:@"Camera"] withExtension:@".jpg"];
+            NSString *path;
+            if([options[@"usePersistentStorage"] boolValue]) {
+                path = [RNFileSystem generatePathInDirectory:[[RNFileSystem persistentStorageDirectoryPath] stringByAppendingPathComponent:@"Camera"] withExtension:@".jpg"];
+            } else {
+                path = [RNFileSystem generatePathInDirectory:[[RNFileSystem cacheDirectoryPath] stringByAppendingPathComponent:@"Camera"] withExtension:@".jpg"];
+            }
             if (![options[@"doNotSave"] boolValue]) {
                 response[@"uri"] = [RNImageUtils writeImage:takenImageData toPath:path];
             }
