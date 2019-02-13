@@ -349,6 +349,7 @@ interface TakePictureOptions {
   mirrorImage?: boolean;
   doNotSave?: boolean;
   pauseAfterCapture?: boolean;
+  usePersistentStorage?: boolean;
 
   /** Android only */
   skipProcessing?: boolean;
